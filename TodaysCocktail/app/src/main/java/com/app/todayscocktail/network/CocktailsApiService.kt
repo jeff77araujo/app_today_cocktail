@@ -23,7 +23,7 @@ interface CocktailsApiService {
     suspend fun getNonAlcoholicCocktails(): CocktailsResponse
 }
 
-// object é um SINGLETON = garantiar apenas uma estância do db
+// object é um SINGLETON = garantir apenas uma instância do db
 object CocktailsApi {
     val retrofitService: CocktailsApiService by lazy {
         retrofit.create(CocktailsApiService::class.java)

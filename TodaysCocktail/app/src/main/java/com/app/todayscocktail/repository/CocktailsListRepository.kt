@@ -1,5 +1,6 @@
 package com.app.todayscocktail.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.app.todayscocktail.network.Cocktail
@@ -25,9 +26,10 @@ class CocktailsListRepository() {
         // executando tarefas fora da main thread, porque vamos fazer uma requisição de rede
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val listResult = CocktailsApi.retrofitService.getAlcoholicCocktails().cocktailsList
+                val listResult = CocktailsApi.retrofitService.getNonAlcoholicCocktails().cocktailsList
                 cocktailListResponse.postValue(listResult)
             } catch (e: Exception) {
+                Log.i("Service error", "${e.message}")
                 withContext(Dispatchers.Main) {
                     cocktailListResponse.postValue(listOf())
                 }
