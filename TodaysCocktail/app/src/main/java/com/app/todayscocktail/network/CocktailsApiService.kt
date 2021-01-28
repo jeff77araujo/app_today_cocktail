@@ -17,13 +17,13 @@ private val retrofit = Retrofit.Builder()
 
 interface CocktailsApiService {
     @GET("filter.php?a=Alcoholic")
-    suspend fun getAlcoholicCocktais(): CocktailsResponse
+    suspend fun getAlcoholicCocktails(): CocktailsResponse
 
     @GET("filter.php?a=Non_Alcoholic")
-    suspend fun getNonAlcoholicCocktais(): CocktailsResponse
+    suspend fun getNonAlcoholicCocktails(): CocktailsResponse
 }
 
-// object é semelhante ao SINGLETON
+// object é um SINGLETON = garantiar apenas uma estância do db
 object CocktailsApi {
     val retrofitService: CocktailsApiService by lazy {
         retrofit.create(CocktailsApiService::class.java)
