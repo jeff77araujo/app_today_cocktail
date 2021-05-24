@@ -22,6 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Special Dry Martini"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="20dp"
         android:padding="5dp"/>
