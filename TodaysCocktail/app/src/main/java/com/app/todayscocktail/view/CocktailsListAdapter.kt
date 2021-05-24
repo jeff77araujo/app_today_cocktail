@@ -51,5 +51,4 @@ class CocktailsListAdapter: RecyclerView.Adapter<CocktailsListAdapter.CocktailsL
             }
         }
     }
-
 }

@@ -37,7 +37,7 @@ class CocktailsListRepository(private val cocktailDao: CocktailDao, private val 
         // executando tarefas fora da main thread, porque vamos fazer uma requisição de rede
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val listResult = cocktailApi.getNonAlcoholicCocktails().cocktailsList
+                val listResult = cocktailApi.getAlcoholicCocktails().cocktailsList
                 saveRemoteDataAtDatabase(listResult)
 
             } catch (e: Exception) {
